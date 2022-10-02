@@ -20,10 +20,10 @@
         </li>
       </ul>
 
-      <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown
-        style="margin-left: auto">
-        <a class="dropdown-toggle text-light btn btn-outline-info btn-sm"  dropdownToggle>Welcome {{user.username | titlecase}}</a>
-        <div class="dropdown-menu mt-1" *dropdownMenu>
+      <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+        <img class="img" src="{{user.photoUrl}}" alt="{{user.username}}">
+        <a class="dropdown-toggle text-light btn btn-outline-info btn-sm ml-2"  dropdownToggle>Welcome {{user.username | titlecase}}</a>
+        <div class="dropdown-menu mt-1 dropdown-menu-right" *dropdownMenu>
           <a class="dropdown-item" routerLink="/member/edit">Edit Profile</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" (click)="logout()">Logout</a>
