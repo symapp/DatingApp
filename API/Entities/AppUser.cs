@@ -34,8 +34,7 @@ public class AppUser
     
     public ICollection<Photo> Photos { get; set; }
 
-    /*public int GetAge()
-    {
-        return DateOfBirth.CalculateAge();
-    }*/
+    public ICollection<UserLike> LikedByUsers { get; set; }
+
+    public ICollection<UserLike> LikedUsers { get; set; }
 }
