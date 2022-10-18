@@ -1,4 +1,6 @@
-﻿namespace API.DTO;
+﻿using Newtonsoft.Json;
+
+namespace API.DTO;
 
 public class MessageDto
 {
@@ -21,4 +23,10 @@ public class MessageDto
     public DateTime? DateRead { get; set; }
 
     public DateTime MessageSent { get; set; }
+
+    [JsonIgnore]
+    public bool SenderDeleted { get; set; }
+
+    [JsonIgnore]
+    public bool RecipientDeleted { get; set; }
 }

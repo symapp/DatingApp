@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using API.Data;
 using API.Extensions;
 using API.Interface;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -14,12 +15,13 @@ public class LogUserActivity : IAsyncActionFilter
         if (resultContext.HttpContext.User.Identity is { IsAuthenticated: false }) return;
 
         var userId = resultContext.HttpContext.User.GetUserId();
-        var repo = resultContext.HttpContext.RequestServices.GetService<IUserRepository>();
-        if (repo != null)
+        var uow = resultContext.HttpContext.RequestServices.GetService<UnitOfWork>();
+
+        if (uow != null)
         {
-            var user = await repo.GetUserByIdAsync(userId);
+            var user = await uow.UserRepository.GetUserByIdAsync(userId); 
             user.LastActive = DateTime.Now;
-            await repo.SaveAllAsync();
+            await uow.Complete();
         }
     }
 }
