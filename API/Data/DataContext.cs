@@ -28,6 +28,8 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int,
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
         builder.Entity<Photo>()
             .HasQueryFilter(p => p.IsApproved);
