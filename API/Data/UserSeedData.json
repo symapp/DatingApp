@@ -14,7 +14,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/24.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -33,7 +34,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/90.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -52,7 +54,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/75.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -71,7 +74,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/62.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -90,7 +94,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/women/49.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -109,7 +114,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/51.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -128,7 +134,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/4.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -147,7 +154,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/63.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -166,7 +174,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/78.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   },
@@ -185,7 +194,8 @@
     "Photos": [
       {
         "Url": "https://randomuser.me/api/portraits/men/47.jpg",
-        "IsMain": true
+        "IsMain": true,
+        "IsApproved": true
       }
     ]
   }

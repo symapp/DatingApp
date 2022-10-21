@@ -1,5 +1,7 @@
-﻿using API.DTO;
+﻿using System.Security.Claims;
+using API.DTO;
 using API.Entities;
+using API.Extensions;
 using API.Helpers;
 using API.Interface;
 using AutoMapper;
@@ -66,12 +68,18 @@ public class UserRepository : IUserRepository
             userParams.PageSize);
     }
 
-    public async Task<MemberDto> GetMemberAsync(string username)
+    public async Task<MemberDto> GetMemberAsync(string username, ClaimsPrincipal currentUser)
     {
-        return await _context.Users
+        var userQuery = _context.Users
             .Where(x => x.UserName == username)
-            .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-            .SingleOrDefaultAsync();
+            .ProjectTo<MemberDto>(_mapper.ConfigurationProvider);
+
+        if (currentUser.GetUsername().Equals(username))
+        {
+            userQuery = userQuery.IgnoreQueryFilters();
+        }
+            
+        return await userQuery.SingleOrDefaultAsync();
     }
 
     public async Task<string> GetUserGender(string username)
@@ -79,5 +87,17 @@ public class UserRepository : IUserRepository
         return await _context.Users
             .Where(x => x.UserName == username).Select(x => x.Gender)
             .FirstOrDefaultAsync();
+    }
+
+    public async Task<AppUser> GetUserByPhotoId(int photoId)
+    {
+        var photo = await _context.Photos.IgnoreQueryFilters().FirstOrDefaultAsync(photo => photo.Id == photoId);
+        if (photo == null) return null;
+        var userId = photo.AppUserId;
+
+        return await _context.Users
+            .IgnoreQueryFilters()
+            .Include(u => u.Photos)
+            .SingleOrDefaultAsync(user => user.Id == userId);
     }
 }

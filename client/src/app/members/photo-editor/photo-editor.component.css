@@ -1,6 +1,7 @@
 img.img-thumbnail {
   height: 100px;
   min-width: 100px !important;
+  opacity: 1;
   margin-bottom: 2px;
 }
 
@@ -10,4 +11,8 @@ img.img-thumbnail {
 
 input[type=file] {
   color: transparent;
+}
+
+.unapproved {
+  opacity: 0.2 !important;
 }

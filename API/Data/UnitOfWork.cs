@@ -11,6 +11,8 @@ public class UnitOfWork : IUnitOfWork
     public IMessageRepository MessageRepository => new MessageRepository(_context, _mapper);
     public ILikesRepository LikesRepository => new LikesRepository(_context);
 
+    public IPhotoRepository PhotoRepository => new PhotoRepository(_context, _mapper);
+
     public UnitOfWork(DataContext context, IMapper mapper)
     {
         _context = context;

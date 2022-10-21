@@ -1,4 +1,5 @@
-﻿using API.DTO;
+﻿using System.Security.Claims;
+using API.DTO;
 using API.Entities;
 using API.Helpers;
 
@@ -17,7 +18,9 @@ public interface IUserRepository
 
     Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams);
 
-    Task<MemberDto> GetMemberAsync(string username);
+    Task<MemberDto> GetMemberAsync(string username, ClaimsPrincipal currentUser);
 
     Task<string> GetUserGender(string username);
+
+    Task<AppUser> GetUserByPhotoId(int photoId);
 }
